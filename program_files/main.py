@@ -5,7 +5,9 @@ from auth import AuthManager
 from timer import TimerManager
 from database import Database
 from api_client import MotivationAPI, WorldTimeAPI, ScheduleAPI
-
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+import calendar
 import json
 import tkinter.messagebox as mb
 from PIL import Image
@@ -183,6 +185,7 @@ class StudyTrackerApp(ctk.CTk):
         except Exception as e:
             print(f"Ошибка API цитат: {e}")
 
+
     def show_achievements(self):
         self.clear_content()
 
@@ -205,6 +208,7 @@ class StudyTrackerApp(ctk.CTk):
                          text="Пока нет достижений",
                          font=("Arial", 14)).pack(pady=20)
 
+
     def show_schedule(self):
         self.clear_content()
 
@@ -213,8 +217,8 @@ class StudyTrackerApp(ctk.CTk):
 
         try:
             # Получаем данные
-            group_info = ScheduleAPI.get_group_info(40520)
-            schedule = ScheduleAPI.get_group_schedule(40520)
+            group_info = ScheduleAPI.get_group_info(42793)
+            schedule = ScheduleAPI.get_group_schedule(42793)
 
             # Заголовок
             header_frame = ctk.CTkFrame(schedule_frame)
@@ -223,16 +227,16 @@ class StudyTrackerApp(ctk.CTk):
             # Информация о группе
             group_info_label = ctk.CTkLabel(
                 header_frame,
-                text=f"👥 Группа: {group_info['name']} | 🏛 Институт компьютерных наук и технологий | 🎓 Курс: 3",
+                text=f"👥 Группа: {group_info['name']} | 🏛 Институт компьютерных наук и кибербезопасности | 🎓 Курс: 3",
                 font=("Arial", 14)
             )
             group_info_label.pack(side="left", padx=10)
 
             # Информация о неделе
-            week_type = "Нечетная" if schedule["week"]["is_odd"] else "Четная"  # Преобразование bool в строку
+
             week_label = ctk.CTkLabel(
                 header_frame,
-                text=f"📅 {schedule['week']['date_start']} - {schedule['week']['date_end']} ({week_type})",
+                text=f"📅 {schedule['week']['date_start']} - {schedule['week']['date_end']}",
                 font=("Arial", 14)
             )
             week_label.pack(side="right", padx=10)
