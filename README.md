@@ -9,6 +9,8 @@
 Шабала Алексей Романович 5130904/30101
 Карпов Демид Олегович 5130904/30101
 
+## Отчет
+[КОНСТРУИРОВАНИЕ_ПО_5130904:30101.pdf](https://github.com/user-attachments/files/24535168/_._5130904.30101.pdf)
 
 ## Репозиторий
 https://github.com/dwdfedf123/KPO
@@ -33,6 +35,7 @@ https://github.com/dwdfedf123/KPO
 - **Расписание**: RUZ СПбПУ (`ruz.spbstu.ru`)
 - **Время**: WorldTimeAPI (`worldtimeapi.org`)
 - **Мотивация**: Quotable API (случайная цитата; `api.quotable.io`)
+
 
 ## Структура проекта (основные файлы)
 - `main.py` — GUI и навигация по разделам
